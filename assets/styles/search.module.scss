@@ -1,0 +1,32 @@
+.search {
+    display:flex;
+    width:30vw;
+    flex-direction: column;
+    .search_container {
+        display:flex;
+    }
+    input[type='text'] {
+        padding:10px;
+        width:100%;
+        outline:0px;
+    }
+    .results {
+        margin-top:20px;
+        .results_container {
+            margin-top:20px;
+            margin-bottom:20px;
+        }
+        .results_header {
+            display:flex;
+            .title {
+                width:80%
+            }
+            .kcal {
+                width:20%;
+            }
+            .protein {
+                width:20%;
+            }
+        }
+    }
+}

@@ -1,9 +1,14 @@
-import Layout from '../components/Layout/Layout.js'
+import Layout from '../components/Layout/Layout.jsx'
+import '../assets/styles/global.scss'
+import { RecoilRoot } from 'recoil'
 
 export default function App({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <RecoilRoot>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </RecoilRoot>
+
   )
 }

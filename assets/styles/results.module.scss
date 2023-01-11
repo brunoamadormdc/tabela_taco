@@ -1,0 +1,17 @@
+.results {
+    margin-top:20px;
+    .results_container {
+        margin-top:20px;
+        margin-bottom:20px;
+    }
+    .results_header {
+        display:flex;
+        flex-direction: column;
+        .title {
+            width:100%
+        }
+        .kcal {
+            width:20%;
+        }
+    }
+}
