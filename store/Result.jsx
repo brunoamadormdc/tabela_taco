@@ -23,6 +23,12 @@ const getResult = selector({
             val.energy_kj = ruleOfThree(val.energy_kj | 0,100,get_grams)
             val.carbohydrate_g = ruleOfThree(val.carbohydrate_g | 0,100,get_grams)
             val.protein_g = ruleOfThree(val.protein_g | 0,100,get_grams)
+            val.fiber_g = ruleOfThree(val.fiber_g | 0,100,get_grams)
+            val.lipid_g = ruleOfThree(val.lipid_g | 0,100,get_grams)
+            val.lipid_g = ruleOfThree(val.lipid_g | 0,100,get_grams)
+            val.saturated_g = ruleOfThree(val.saturated_g | 0,100,get_grams)
+            val.monounsaturated_g = ruleOfThree(val.monounsaturated_g | 0,100,get_grams)
+            val.polyunsaturated_g = ruleOfThree(val.polyunsaturated_g | 0,100,get_grams)
             
 
 
