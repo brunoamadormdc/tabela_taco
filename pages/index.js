@@ -1,7 +1,11 @@
+import styles from '../assets/styles/app.module.scss'
+
 export default function Home() {
   return (
     <>
-      <p>Rotas:</p>
+      <div>
+        Em construção
+      </div>
     </>
   )
 }

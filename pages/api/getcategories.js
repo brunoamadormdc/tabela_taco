@@ -6,7 +6,7 @@ export default function handler(req, res) {
   let categorias = taco_table.map(val=> val.category)
   let unique_categorias = categorias.filter(onlyUnique)
 
-  if(req == 'post') {
+  if(req == 'POST') {
     res.status(500).json({error:'Requisição não permitida'})
   }
   
