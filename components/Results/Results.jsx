@@ -18,7 +18,7 @@ export default function Results() {
                             <div className={styles.itens}>{Math.round(val.protein_g)}g/proteín</div>
                             <div className={styles.itens}>{Math.round(val.carbohydrate_g)}g/carbo</div>
                             <div className={styles.itens}>{Math.round(val.fiber_g)}g/fibras</div>
-                            <div className={styles.itens}>{Math.round(val.fiber_g)}g/fibras</div>
+
                             <div className={styles.itens}>{Math.round(val.lipid_g)}g/gordura</div>
                             <div className={styles.itens}>{Math.round(val.lipid_g)}g/gord. saturada</div>
                         </div>
