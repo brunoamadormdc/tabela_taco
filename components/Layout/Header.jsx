@@ -7,7 +7,7 @@ export default function Header() {
             <div className={styles.header_content}></div>
                 <h1 className={styles.title}>
 
-                    Tabela Contagem de Nutrientes TACO
+                    Tabela de Contagem de Calorias e Nutrientes
                 </h1>
 
             </div>
