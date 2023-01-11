@@ -30,7 +30,7 @@ export default function Search() {
                 <div className={styles.search_container}>
                     <label>Nome do alimento:</label>
                     <input type="text" placeholder="Faça sua busca" ref={search} />
-                    <label>Quantidade em g:</label>
+                    <label>Quantidade em gramas:</label>
                     <input type="number" placeholder="gramas" value={grams} onChange={(e)=> setGrams(e.target.value)} />
                     <button onClick={getByname}>Buscar Alimento</button>
                 </div>
