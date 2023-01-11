@@ -2,7 +2,7 @@ import { taco_table } from '../../tables/taco_table'
 
 export default function handler(req, res) {
 
-    if (req == 'GET') {
+    if (req.method == 'GET') {
         res.status(500).json({ error: 'Requisição não permitida' })
     }
 

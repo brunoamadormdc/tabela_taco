@@ -3,13 +3,12 @@ import {slugify} from '../../helpers/index'
 
 export default function handler(req, res) {
 
-    if (req == 'GET') {
+    if (req.method == 'GET') {
         res.status(500).json({ error: 'Requisição não permitida' })
     }
 
     const {name} = req.body
-    console.log(name)
-    
+        
     const result = taco_table.filter(val => {
        
         if (slugify(val.description).match(slugify(name)) != null) {
