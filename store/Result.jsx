@@ -1,37 +1,40 @@
 import { atom, selector } from 'recoil'
+import { recoilPersist } from 'recoil-persist'
+
+const {persistAtom} = recoilPersist()
+
 
 const result = atom({
     key: 'atom_result',
-    default: []
+    default: [],
 })
 
 const gramas = atom({
     key: 'atom_grams',
-    default: 100
+    default: 100,
+    effects_UNSTABLE: [persistAtom],
 })
 
 const getResult = selector({
     key: 'atom_resultados',
     get: ({ get }) => {
+        
         const get_grams = get(gramas)
+        
         let return_result
 
         return_result = JSON.parse(JSON.stringify(get(result)))
 
         return_result.length > 0 ? return_result = return_result.map(val => {
-            val.energy_kcal = ruleOfThree(val.energy_kcal,100,get_grams)
-            val.energy_kj = ruleOfThree(val.energy_kj | 0,100,get_grams)
-            val.carbohydrate_g = ruleOfThree(val.carbohydrate_g | 0,100,get_grams)
-            val.protein_g = ruleOfThree(val.protein_g | 0,100,get_grams)
-            val.fiber_g = ruleOfThree(val.fiber_g | 0,100,get_grams)
-            val.lipid_g = ruleOfThree(val.lipid_g | 0,100,get_grams)
-            val.lipid_g = ruleOfThree(val.lipid_g | 0,100,get_grams)
-            val.saturated_g = ruleOfThree(val.saturated_g | 0,100,get_grams)
-            val.monounsaturated_g = ruleOfThree(val.monounsaturated_g | 0,100,get_grams)
-            val.polyunsaturated_g = ruleOfThree(val.polyunsaturated_g | 0,100,get_grams)
-            
 
+            for(const key in val) {
 
+                let value = Number(val[key])
+
+                if(!isNaN(value)) {
+                    val[key] = ruleOfThree(val[key],100,get_grams)
+                }
+            }
             return val
         }) : return_result = []
 

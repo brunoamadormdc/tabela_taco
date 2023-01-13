@@ -1,4 +1,4 @@
-import { useRef, useState, useCallback } from 'react'
+import { useRef, useState, useCallback, useEffect } from 'react'
 import styles from '../../assets/styles/search.module.scss'
 import axios from 'axios'
 import { useRecoilState, useRecoilValue } from 'recoil';
@@ -10,12 +10,21 @@ export default function Search() {
     const [grams,setGrams] = useRecoilState(gramas)
     const [results, setResults] = useRecoilState(result)
 
+    useEffect(()=>{
+        setGrams(100)
+    },[])
+
+    const modifyGrams = useCallback(
+        (e) => {
+            let grams = (e.target.value == '' || e.target.value < 0) ? 1 : e.target.value
+            setGrams(grams)
+        },[]
+    )
     const getByname = useCallback(
         () => {
             if (search.current.value != '') {
                 axios.post('/api/getbyname', { name: search.current.value }).then((res) => {
                     setResults(res.data.pornome)
-                    
                 })
             }
         },
@@ -31,7 +40,7 @@ export default function Search() {
                     <label>Nome do alimento:</label>
                     <input type="text" placeholder="Faça sua busca" ref={search} />
                     <label>Quantidade em gramas:</label>
-                    <input type="number" placeholder="gramas" value={grams} onChange={(e)=> setGrams(e.target.value)} />
+                    <input type="number" placeholder="gramas" onChange={modifyGrams} />
                     <button onClick={getByname}>Buscar Alimento</button>
                 </div>
 

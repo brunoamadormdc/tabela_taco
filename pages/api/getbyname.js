@@ -1,5 +1,5 @@
 import { taco_table } from '../../tables/taco_table'
-import {slugify} from '../../helpers/index'
+import { slugify } from '../../helpers/index'
 
 export default function handler(req, res) {
 
@@ -7,17 +7,28 @@ export default function handler(req, res) {
         res.status(500).json({ error: 'Requisição não permitida' })
     }
 
-    const {name} = req.body
-        
+    const { name } = req.body
+    
+
     const result = taco_table.filter(val => {
-       
-        if (slugify(val.description).match(slugify(name)) != null) {
+
+        if (val.nome_do_alimento.toLowerCase().match(name.toLowerCase()) != null) {
             return val
         }
-        
+
     })
 
-    res.status(200).json({ pornome: result })
-   
+    const startsWithletter = result.filter(val => {
+        if(val.nome_do_alimento.toLowerCase().startsWith(name[0].toLowerCase())) return val
+    })
+
+    const notstartsWithletter = result.filter(val => {
+        if(!val.nome_do_alimento.toLowerCase().startsWith(name[0].toLowerCase())) return val
+    })
+
+    const final_result = [...startsWithletter, ...notstartsWithletter]
+
+    res.status(200).json({ pornome: final_result })
+
 
 }

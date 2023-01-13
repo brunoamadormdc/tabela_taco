@@ -6,7 +6,7 @@ export default function handler(req, res) {
     
     const {id} = req.query
 
-    const result = taco_table.find(val=> val.id == Number(id))
+    const result = taco_table.find(val=> val.id == id)
 
     res.status(200).json({result:result})
 

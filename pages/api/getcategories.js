@@ -3,7 +3,7 @@ import {onlyUnique} from '../../helpers/index'
 
 export default function handler(req, res) {
 
-  let categorias = taco_table.map(val=> val.category)
+  let categorias = taco_table.map(val=> val['Categoria'])
   let unique_categorias = categorias.filter(onlyUnique)
 
   if(req.method == 'POST') {

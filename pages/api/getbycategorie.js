@@ -8,7 +8,7 @@ export default function handler(req, res) {
 
     const {categoria} = req.body
     
-    const result = taco_table.filter(val => val.category == categoria)
+    const result = taco_table.filter(val => val.categoria == categoria)
 
     res.status(200).json({ porcategoria: result })
 
