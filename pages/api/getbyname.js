@@ -9,10 +9,11 @@ export default function handler(req, res) {
 
     const { name } = req.body
     
+    let splitted_name = name.split(' ')
 
     const result = taco_table.filter(val => {
-
-        if (val.nome_do_alimento.toLowerCase().match(name.toLowerCase()) != null) {
+        
+        if (slugify(val.nome_do_alimento).match(slugify(name.toLowerCase())) != null) {
             return val
         }
 

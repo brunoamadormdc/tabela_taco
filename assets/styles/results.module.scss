@@ -18,10 +18,11 @@
             h2 {
                 padding:5px;
                 margin:5px;
-                font-size:1.1em;
+                font-size:0.9em;
                 text-transform: uppercase;
                 color:rgb(0, 156, 104);
                 text-align:center;
+                width:60%;
             }
         }
         .itens_container {
@@ -31,11 +32,22 @@
             background-color:#eee;
             padding:20px;
             .itens {
-                width:25%;
+                width:15%;
                 text-align:center;
                 color:#000;
                 margin-bottom:20px;
-                font-size:0.8rem
+                font-size:0.8rem;
+                label {
+                    display:block;
+                    margin-bottom:5px;
+                    font-weight:bold;
+                    color:rgb(0, 156, 104);
+                    font-size:0.8rem;
+                }
+                span {
+                    font-size:1.0rem;
+                    font-weight: 900;
+                }
             }
         }
 

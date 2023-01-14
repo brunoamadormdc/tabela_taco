@@ -21,7 +21,8 @@ export default function Search() {
         },[]
     )
     const getByname = useCallback(
-        () => {
+        (e) => {
+            e.preventDefault();
             if (search.current.value != '') {
                 axios.post('/api/getbyname', { name: search.current.value }).then((res) => {
                     setResults(res.data.pornome)
@@ -37,11 +38,12 @@ export default function Search() {
         <>
             <div className={styles.search}>
                 <div className={styles.search_container}>
-                    <label>Nome do alimento:</label>
-                    <input type="text" placeholder="Faça sua busca" ref={search} />
-                    <label>Quantidade em gramas:</label>
-                    <input type="number" placeholder="gramas" onChange={modifyGrams} />
-                    <button onClick={getByname}>Buscar Alimento</button>
+                    <form onSubmit={getByname}>
+                        <label>Tipo do Alimento:</label>
+                        <input type="text" placeholder="Faça sua busca" ref={search} />
+                    
+                        <button type='submit'>Buscar Alimento</button>
+                    </form>
                 </div>
 
             </div>
