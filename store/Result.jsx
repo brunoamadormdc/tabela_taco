@@ -15,12 +15,18 @@ const gramas = atom({
     effects_UNSTABLE: [persistAtom],
 })
 
+const filtro = atom({
+    key: 'atom_filter',
+    default: '',
+})
+
 const getResult = selector({
     key: 'atom_resultados',
     get: ({ get }) => {
         
         const get_grams = get(gramas)
-        
+        const get_filter = get(filtro)
+
         let return_result
 
         return_result = JSON.parse(JSON.stringify(get(result)))
@@ -38,6 +44,10 @@ const getResult = selector({
             return val
         }) : return_result = []
 
+        if(get_filter !== '') {
+            return_result = return_result.filter(val => val.nome_do_alimento.toLowerCase().includes(get_filter.toLowerCase()))
+        }
+
         return return_result
     }
 })
@@ -47,4 +57,4 @@ function ruleOfThree(x, y, z) {
 }
 
 
-export { result, getResult, gramas }
+export { result, getResult, gramas, filtro }

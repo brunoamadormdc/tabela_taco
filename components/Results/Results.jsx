@@ -1,6 +1,7 @@
 import styles from '../../assets/styles/results.module.scss'
 import { useRecoilValue } from 'recoil'
 import { getResult, gramas as grams } from '../../store/Result'
+import Filter from '../Filter/Filter'
 
 export default function Results() {
 
@@ -8,7 +9,8 @@ export default function Results() {
     const gramas = useRecoilValue(grams)
 
     return (
-        <>
+        <>  
+            <Filter />
             <div className={styles.results}>
                 {getResults.length > 0 ? getResults.map(val => <div className={styles.results_container} key={val.id}>
                     <div className={styles.results_header}>

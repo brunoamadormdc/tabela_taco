@@ -2,13 +2,14 @@ import { useRef, useState, useCallback, useEffect } from 'react'
 import styles from '../../assets/styles/search.module.scss'
 import axios from 'axios'
 import { useRecoilState, useRecoilValue } from 'recoil';
-import {result,getResult,gramas} from '../../store/Result'
+import {result,getResult,gramas, filtro} from '../../store/Result'
 
 export default function Search() {
 
     const search = useRef(null);
     const [grams,setGrams] = useRecoilState(gramas)
     const [results, setResults] = useRecoilState(result)
+    const [filt, setFilt] = useRecoilState(filtro)
 
     useEffect(()=>{
         setGrams(100)
@@ -24,6 +25,7 @@ export default function Search() {
         (e) => {
             e.preventDefault();
             if (search.current.value != '') {
+                setFilt('')
                 axios.post('/api/getbyname', { name: search.current.value }).then((res) => {
                     setResults(res.data.pornome)
                 })
