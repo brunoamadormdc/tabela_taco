@@ -34,7 +34,7 @@ export default function Filter() {
                 </div>
                 <div className={styles.filter_grams}>
                     <label>Peso:</label>
-                    <input type="text" placeholder="em gramas" ref={value_gramas} onKeyUp={addGrams} />
+                    <input type="text" placeholder="/g" ref={value_gramas} onKeyUp={addGrams} />
                 </div>
             </div>
         </>
