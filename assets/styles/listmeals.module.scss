@@ -12,6 +12,8 @@
             display:flex;
             flex-direction:column;
             transition:all 0.3s;
+
+           
             
             .table_header {
                 font-size:12px;
@@ -21,6 +23,9 @@
                 text-align:center;
                 color:#000;
                 background-color:rgb(85, 85, 85);
+                &.table_header_totals {
+                    background-color:#06e399;
+                }
                 
             }
             .table_itens {
@@ -31,6 +36,9 @@
                 
                 background-color:rgb(194, 194, 194);
                 padding:5px;
+                &.table_itens_totals {
+                    background-color:#b1ffe5;
+                }
                 .table_foods {
                     display:flex;
                     align-items: center;

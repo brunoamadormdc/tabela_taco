@@ -4,10 +4,12 @@ import { useRecoilState, useRecoilValue } from 'recoil'
 import { modalmeal } from '../../store/ModalMeal'
 import { selectedMeal, meals } from '../../store/Meals'
 import useGetmeals from '../../hooks/useGetmeals'
+import { gramas } from '../../store/Result'
 
 export default function CreateMealModal() {
 
     const [vmodalmeal, setVModalMeal] = useRecoilState(modalmeal)
+    const grams = useRecoilValue(gramas)
     const addMeal = useRef('')
     const [vMeals, setFoodsmeal] = useRecoilState(meals)
     const [insert_meal, setVSelectedMeal] = useRecoilState(selectedMeal)
@@ -45,7 +47,7 @@ export default function CreateMealModal() {
             const meal = oldMeals[mealIndex]
             const newMeal = {
                 ...meal,
-                foods: [...meal.foods, insert_meal]
+                foods: [...meal.foods, {...insert_meal, gramas:grams}]
             }
             const newMeals = [...oldMeals]
             newMeals[mealIndex] = newMeal

@@ -35,6 +35,10 @@ const getResult = selector({
 
             for(const key in val) {
 
+                if(val[key] === 'nan') {
+                    val[key] = 0
+                }
+
                 let value = Number(val[key])
 
                 if(!isNaN(value)) {
