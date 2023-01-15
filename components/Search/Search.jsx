@@ -15,12 +15,6 @@ export default function Search() {
         setGrams(100)
     },[])
 
-    const modifyGrams = useCallback(
-        (e) => {
-            let grams = (e.target.value == '' || e.target.value < 0) ? 1 : e.target.value
-            setGrams(grams)
-        },[]
-    )
     const getByname = useCallback(
         (e) => {
             e.preventDefault();
@@ -33,8 +27,6 @@ export default function Search() {
         },
         [],
     );
-
-
 
     return (
         <>

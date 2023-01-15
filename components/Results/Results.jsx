@@ -1,12 +1,22 @@
 import styles from '../../assets/styles/results.module.scss'
-import { useRecoilValue } from 'recoil'
+import { useRecoilState, useRecoilValue } from 'recoil'
 import { getResult, gramas as grams } from '../../store/Result'
 import Filter from '../Filter/Filter'
+import { modalmeal } from '../../store/ModalMeal'
+import { selectedMeal } from '../../store/Meals'
 
 export default function Results() {
 
     const getResults = useRecoilValue(getResult)
     const gramas = useRecoilValue(grams)
+    const [vModal,setVmodal] = useRecoilState(modalmeal)
+    const [vSelectedMeal,setVSelectedMeal] = useRecoilState(selectedMeal)
+
+    const selectMeal = (meal) => {
+        setVmodal(true)
+        setVSelectedMeal(meal)
+        
+    }    
 
     return (
         <>  
@@ -14,7 +24,7 @@ export default function Results() {
             <div className={styles.results}>
                 {getResults.length > 0 ? getResults.map(val => <div className={styles.results_container} key={val.id}>
                     <div className={styles.results_header}>
-                        
+                        <div className={styles.add_meal} onClick={() => selectMeal(val)}></div>
                         <div className={styles.title}><h2>{val.nome_do_alimento} - por {gramas}/g</h2></div>
 
                         <div className={styles.itens_container}>

@@ -1,0 +1,81 @@
+.listmeals {
+    display:flex;
+    flex-direction: column;
+    margin-top:40px;
+    width:100%;
+
+    .meals_item {
+        position:relative;
+        width:100%;
+        
+        .foods_table {
+            display:flex;
+            flex-direction:column;
+            transition:all 0.3s;
+            
+            .table_header {
+                font-size:12px;
+                font-weight:bold;
+                text-transform:uppercase;
+                padding:10px;
+                text-align:center;
+                color:#000;
+                background-color:rgb(85, 85, 85);
+                
+            }
+            .table_itens {
+                display:flex;
+                justify-content: space-around;
+                flex-wrap:wrap;
+                
+                
+                background-color:rgb(194, 194, 194);
+                padding:5px;
+                .table_foods {
+                    display:flex;
+                    align-items: center;
+                    flex-direction:column;
+                    padding:5px;
+                    label {
+                        font-size:0.6rem;
+                        color:#000;
+                        font-weight:bold;
+                    }
+                    span {
+                        font-size:1rem;
+                        color:#000;
+                        
+                    }
+                }
+            }
+        }
+        .exclude_meal {
+            position:absolute;
+            right:20px;
+            top:30px;
+            width:20px;
+            height:20px;
+            background-image:url('../images/remover.png');
+            background-position: center center;
+            background-repeat:no-repeat;
+            background-size:20px 20px;
+            cursor:pointer;
+            
+        }
+        h3 {
+            cursor:pointer;
+            background-color:#fff;
+            padding:10px;
+            margin-bottom:0px;
+            text-align:center;
+            color:rgb(0, 156, 104);
+            text-transform:uppercase;
+        }
+    }
+}
+
+@media(max-width:800px) {
+    .table_foods {
+        width:20%;
+    }
+}

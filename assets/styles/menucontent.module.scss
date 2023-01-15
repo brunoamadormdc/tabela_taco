@@ -1,0 +1,27 @@
+.menu_item {
+    display:flex;
+    padding:10px;
+    font-size:12px;
+    cursor:pointer;
+    flex-direction: column;
+    .menu_item_icon {
+        width:100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom:3px;
+        img {
+            width:25px;
+            height:auto;
+        }
+    }
+    .menu_item_text {
+        width:100%;
+        display:flex;
+        font-size:10px;
+        justify-content: center;
+        align-items: center;
+        font-weight:normal;
+    }	
+
+}

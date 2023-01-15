@@ -8,6 +8,20 @@
     .results_header {
         display:flex;
         flex-direction: column;
+        position: relative;
+        .add_meal {
+            position:absolute;
+            right:10px;
+            top:6px;
+            width:20px;
+            height:20px;
+            background-image:url('../images/add.png');
+            background-position: center center;
+            background-repeat:no-repeat;
+            background-size:20px 20px;
+            cursor:pointer;
+            
+        }
         .title {
             width:100%;
             display:flex;
@@ -30,7 +44,7 @@
             flex-wrap: wrap;
             justify-content: space-evenly;
             background-color:#eee;
-            padding:20px;
+            padding:10px;
             .itens {
                 width:15%;
                 text-align:center;

@@ -20,7 +20,8 @@ export default function Filter() {
 
     const addGrams = useCallback(
         (e) => {
-            setGrams(e.target.value)
+            let grams = (e.target.value == '' || e.target.value <= 0) ? 1 : e.target.value
+            setGrams(grams)
         }, []
     )
 

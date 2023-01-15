@@ -1,0 +1,14 @@
+.menu {
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    background-color:rgb(255, 255, 255);
+    display:flex;
+    z-index: 1000;
+    
+    .menu_container {
+        width:100%;
+        display:flex;
+        justify-content: space-evenly;
+    }
+}
