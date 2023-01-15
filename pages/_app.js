@@ -6,6 +6,10 @@ import Script from 'next/script';
 export default function App({ Component, pageProps }) {
   return (
     <RecoilRoot>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1813532986569200"
+        crossorigin="anonymous"
+      />
+
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-DMMDHSK6EP"
         strategy="afterInteractive"
