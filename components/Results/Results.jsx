@@ -31,10 +31,8 @@ export default function Results() {
                             <div className={styles.itens}><label>Calorias</label> <span>{Math.round(val.calorias)}</span></div>
                             <div className={styles.itens}><label>Proteínas</label> <span>{Math.round(val.proteinas)}g</span></div>
                             <div className={styles.itens}><label>Carboidratos</label> <span>{Math.round(val.carboidratos)}g</span></div>
-                            <div className={styles.itens}><label>Fibras</label><span>{Math.round(val.fibras)}g</span></div>
-
                             <div className={styles.itens}><label>Gorduras</label><span>{Math.round(val.gorduras)}g</span></div>
-                            <div className={styles.itens}><label>Gord.Saturada</label><span>{Math.round(val.gorduras_saturadas)}g</span></div>
+                            
                         </div>
 
 
