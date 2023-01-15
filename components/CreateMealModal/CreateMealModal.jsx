@@ -47,9 +47,10 @@ export default function CreateMealModal() {
 
     return (
         <>
-            <div className={styles.overlay} onClick={() => resetModal()}></div>
+            <div className={styles.overlay}></div>
             <div className={styles.createmealmodal}>
                 <div className={styles.createmealmodal_container}>
+                    <div className={styles.close_modal} onClick={() => resetModal()}>X</div>
                     <div className={styles.add_meal}>
                         <h3>Selecione quantas gramas do alimento</h3>
                         <div className={styles.add_meal_container} onChange={()=>setnewGrams(addGrams.current.value)}>
