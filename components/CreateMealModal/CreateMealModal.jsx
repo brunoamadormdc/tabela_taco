@@ -1,19 +1,20 @@
 import { useEffect, useRef } from 'react'
 import styles from '../../assets/styles/createmealmodal.module.scss'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
 import { modalmeal } from '../../store/ModalMeal'
-import { selectedMeal, meals } from '../../store/Meals'
-import useGetmeals from '../../hooks/useGetmeals'
-import { gramas } from '../../store/Result'
+import { selectedMeal } from '../../store/Meals'
+import { meals } from '../../store/Meals'
+
+import useSelectedmeals from '../../hooks/useSelectedmeal'
 
 export default function CreateMealModal() {
-
+    
     const [vmodalmeal, setVModalMeal] = useRecoilState(modalmeal)
-    const grams = useRecoilValue(gramas)
-    const addMeal = useRef('')
+    const addGrams = useRef('')
     const [vMeals, setFoodsmeal] = useRecoilState(meals)
-    const [insert_meal, setVSelectedMeal] = useRecoilState(selectedMeal)
-    const { listmeals } = useGetmeals()
+
+    const { setnewGrams, listmeals, insert_meal, setVSelectedMeal, newGrams } = useSelectedmeals(selectedMeal)
+
 
     useEffect(() => {
         window.addEventListener('keyup', (e) => {
@@ -23,31 +24,13 @@ export default function CreateMealModal() {
         })
     }, [])
 
-    const addNewMeal = () => {
-        if(addMeal.current.value === '') return 
-
-        const newMeal = {
-            id: String(Math.random()),
-            name: addMeal.current.value,
-            foods: [],
-            enabled:false
-        }
-        setFoodsmeal((oldMeals) =>{
-            const verify = oldMeals.find((meal) => meal.name === newMeal.name)  
-            if(verify) return [...oldMeals]
-            else return [...oldMeals, newMeal]
-        })
-        
-        addMeal.current.value = ''
-    }
-
     const insertMeal = (id) => () => {
         setFoodsmeal((oldMeals) => {
             const mealIndex = oldMeals.findIndex((meal) => meal.id === id)
             const meal = oldMeals[mealIndex]
             const newMeal = {
                 ...meal,
-                foods: [...meal.foods, {...insert_meal, gramas:grams}]
+                foods: [...meal.foods, { ...insert_meal, gramas: newGrams }]
             }
             const newMeals = [...oldMeals]
             newMeals[mealIndex] = newMeal
@@ -68,10 +51,55 @@ export default function CreateMealModal() {
             <div className={styles.createmealmodal}>
                 <div className={styles.createmealmodal_container}>
                     <div className={styles.add_meal}>
-                        <h3>Adicionar Refeição</h3>
-                        <input type="text" ref={addMeal} />
-                        <button onClick={addNewMeal}>Adicionar</button>
+                        <h3>Selecione quantas gramas do alimento</h3>
+                        <div className={styles.add_meal_container} onChange={()=>setnewGrams(addGrams.current.value)}>
+                            <input type="number" ref={addGrams} />
+                        </div>
+
                     </div>
+                    <div key={insert_meal.id} className={styles.foods_table}>
+                                <div className={styles.table_header}>
+                                    {insert_meal.nome_do_alimento} - {newGrams}g
+                                </div>
+                                <div className={styles.table_itens}>
+                                    <div className={styles.table_foods}>
+                                        <label>Calorias</label>
+                                        <span>{Math.round(insert_meal.calorias)}</span>
+                                    </div>
+
+                                    <div className={styles.table_foods}>
+                                        <label>Carboidratos</label>
+                                        <span>{Math.round(insert_meal.carboidratos)}</span>
+                                    </div>
+
+                                    <div className={styles.table_foods}>
+                                        <label>Fibras</label>
+                                        <span>{Math.round(insert_meal.fibras)}</span>
+                                    </div>
+
+                                    <div className={styles.table_foods}>
+                                        <label>Proteínas</label>
+                                        <span>{Math.round(insert_meal.proteinas)}</span>
+                                    </div>
+
+                                    <div className={styles.table_foods}>
+                                        <label>Gorduras</label>
+                                        <span>{Math.round(insert_meal.gorduras)}</span>
+                                    </div>
+
+                                    <div className={styles.table_foods}>
+                                        <label>Gorduras Sat.</label>
+                                        <span>{Math.round(insert_meal.gorduras_saturadas)}</span>
+                                    </div>
+
+                                    <div className={styles.table_foods}>
+                                        <label>Gorduras Trans</label>
+                                        <span>{Math.round(insert_meal.gorduras_trans)}</span>
+                                    </div>
+                                </div>
+
+
+                            </div>
 
                     {listmeals.length > 0 && <h4>Selecione em qual refeição deseja inserir o alimento:</h4>}
                     <div className={styles.modal_list}>

@@ -19,3 +19,8 @@ export function slugify (str) {
 export function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
   }
+
+export function ruleOfThree(x, y, z) {
+    
+    return (x * z) / y;
+}

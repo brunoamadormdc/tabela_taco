@@ -8,15 +8,94 @@
     justify-content: center;
     .createmealmodal_container{
         display:flex;
-        flex-direction:column;
+        
         padding:20px;
         flex-direction:column;
         justify-content: center;
         align-items: center;
         width:65%;
-        min-height:70%;
         background-color:#fff;
         padding:30px;
+        .foods_table {
+            display:flex;
+            width:90%;
+            flex-direction:column;
+            transition:all 0.3s;
+            margin-bottom:20px;
+
+           
+            
+            .table_header {
+                font-size:12px;
+                font-weight:bold;
+                text-transform:uppercase;
+                padding:10px;
+                text-align:center;
+                color:#000;
+                background-color:rgb(85, 85, 85);
+                &.table_header_totals {
+                    background-color:#06e399;
+                }
+                
+            }
+            .table_itens {
+                display:flex;
+                justify-content: space-around;
+                flex-wrap:wrap;
+                
+                
+                background-color:rgb(194, 194, 194);
+                padding:5px;
+                &.table_itens_totals {
+                    background-color:#b1ffe5;
+                }
+                .table_foods {
+                    display:flex;
+                    align-items: center;
+                    flex-direction:column;
+                    padding:5px;
+                    label {
+                        font-size:0.6rem;
+                        color:#000;
+                        font-weight:bold;
+                    }
+                    span {
+                        font-size:1rem;
+                        color:#000;
+                        
+                    }
+                }
+            }
+        }
+        .add_meal {
+            display:flex;
+            flex-direction:column;
+            margin-bottom:30px;
+            width:100%;
+            justify-content: center;
+            align-items: center;
+            h3 {
+                color:rgb(0, 156, 104);
+            }
+            .add_meal_container {
+                display:flex;
+                padding:10px;
+                width:80%;
+                align-items: center;
+                justify-content: center;
+                input[type=text],input[type=number] {
+                    outline:0px;
+                    padding:5px;
+                }
+                button {
+                    padding: 10px;
+                    border: 0px;
+                    outline: 0px;
+                    background-color: rgb(0, 156, 104);
+                    color: #fff;
+                }
+            }
+        }
         h4 {
             padding:0px;
             margin:0px;
