@@ -16,3 +16,21 @@
         width:10%;
     }
 }
+
+@media(max-width:800px) {
+    .create_meal {
+        input[type=text] {
+            width:65%;
+            outline:0px;
+            padding:10px;
+        }
+        button {
+            padding: 10px;
+            border: 0px;
+            outline: 0px;
+            background-color: rgb(0, 156, 104);
+            color: #fff;
+            width:20%;
+        }
+    }
+}
