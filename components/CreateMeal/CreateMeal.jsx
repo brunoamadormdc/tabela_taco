@@ -1,6 +1,7 @@
-import { useCallback, useRef } from "react"
+import { useRef } from "react"
 import { useRecoilState } from "recoil"
 import { meals } from "../../store/Meals"
+import styles from '../../assets/styles/create_meal.module.scss'
 
 
 export default function CreateMeal() {
@@ -24,7 +25,7 @@ export default function CreateMeal() {
 
     return (
         <>
-            <div>
+            <div styles={styles.create_meal}>
                 <input type="text" ref={meal} />
                 <button onClick={addMeal}>Adicionar</button>
             </div>
