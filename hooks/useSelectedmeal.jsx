@@ -1,6 +1,5 @@
-import { useRecoilValue, useRecoilState } from "recoil"
+import { useRecoilState } from "recoil"
 import { useEffect, useState } from "react"
-import { gramas } from '../store/Result'
 import useGetmeals from "./useGetmeals"
 import { selectedMeal } from "../store/Meals"
 import { ruleOfThree } from "../helpers"
